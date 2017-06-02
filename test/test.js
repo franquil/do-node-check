@@ -15,4 +15,15 @@ describe("Sample unit test", function() {
       done();
     });
   });
+
+  it("should show test", function(done) {
+    server
+    .get("/test1")
+    .expect("Content-type", /text/)
+    .expect(200)
+    .end(function(err, res) {
+      res.status.should.equal(200);
+      done();
+    });
+  });
 });
