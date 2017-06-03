@@ -18,7 +18,7 @@ describe("Sample unit test", function() {
 
   it("should show test", function(done) {
     server
-    .get("/test1")
+    .get("/test")
     .expect("Content-type", /text/)
     .expect(200)
     .end(function(err, res) {
