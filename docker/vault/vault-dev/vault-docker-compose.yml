@@ -1,0 +1,18 @@
+# Compose a Vault Server
+# References:
+#  - https://hub.docker.com/_/vault
+#  - https://www.vaultproject.io/docs
+
+version: "3.0"
+services:
+  vault:
+    image: vault:1.4.1
+    ports:
+      - "2228:8222"
+    volumes:
+      - "./file:/vault/file"
+      - "./config:/vault/config"
+    cap_add:
+      - IPC_LOCK
+    entrypoint: ["vault", "server", "-config=/vault/config/vault.json"]
+
